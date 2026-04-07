@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessibility Checker Dashboard | WebYes</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <div class="dashboard">
+
+    <header class="header">
+      <div class="header-inner">
+        <div>
+          <h1 class="header-title">Accessibility Checker</h1>
+          <p class="header-sub">Chrome Web Store Dashboard &mdash; by WebYes</p>
+        </div>
+        <div class="header-meta" id="last-updated">Last updated: —</div>
+      </div>
+    </header>
+
+    <main class="main">
+
+      <!-- Install Stats -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Install Statistics</h2>
+          <span class="section-note">Updated manually from Chrome Web Store Developer Dashboard</span>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card">
+            <div class="stat-label">Total Installs</div>
+            <div class="stat-value" id="stat-total">—</div>
+            <div class="stat-delta" id="delta-total"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Weekly Installs</div>
+            <div class="stat-value" id="stat-weekly-in">—</div>
+            <div class="stat-delta" id="delta-weekly-in"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Weekly Uninstalls</div>
+            <div class="stat-value" id="stat-weekly-out">—</div>
+            <div class="stat-delta" id="delta-weekly-out"></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Net Weekly Growth</div>
+            <div class="stat-value" id="stat-net">—</div>
+            <div class="stat-delta" id="delta-net"></div>
+          </div>
+        </div>
+        <div class="chart-box">
+          <canvas id="chart-installs"></canvas>
+        </div>
+      </section>
+
+      <!-- Keyword Rankings Overview Table -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Keyword Rankings &mdash; All Extensions</h2>
+          <span class="section-note">Position in Chrome Web Store search results. Lower = better. — means not found in top 50.</span>
+        </div>
+        <div class="table-scroll">
+          <table class="rank-table" id="table-overview">
+            <thead>
+              <tr>
+                <th class="kw-col">Keyword</th>
+                <th class="webyes-th">WebYes</th>
+                <th>Silktide</th>
+                <th>Siteimprove</th>
+                <th>Acc. Web Helper</th>
+                <th>BrowserStack</th>
+                <th>Axe DevTools</th>
+                <th>WAVE</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-overview">
+              <tr><td colspan="8" class="empty-row">No ranking data yet. Run the scraper to populate.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- WebYes Change Table -->
+      <section class="section">
+        <div class="section-header">
+          <h2>WebYes Ranking Changes</h2>
+          <span class="section-note">Day-over-day and week-over-week changes. ↑ = moved up (improved), ↓ = moved down.</span>
+        </div>
+        <div class="table-scroll">
+          <table class="rank-table" id="table-changes">
+            <thead>
+              <tr>
+                <th class="kw-col">Keyword</th>
+                <th>Current Rank</th>
+                <th>Yesterday</th>
+                <th>DoD Change</th>
+                <th>Last Week</th>
+                <th>WoW Change</th>
+              </tr>
+            </thead>
+            <tbody id="tbody-changes">
+              <tr><td colspan="6" class="empty-row">No ranking data yet.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Keyword Trend Chart -->
+      <section class="section">
+        <div class="section-header">
+          <h2>Ranking Trend</h2>
+          <div class="controls">
+            <label for="kw-select">Keyword:</label>
+            <select id="kw-select"></select>
+          </div>
+        </div>
+        <p class="chart-note">Y-axis is inverted: rank #1 appears at the top. Dashed lines = missing data for that day.</p>
+        <div class="chart-box">
+          <canvas id="chart-trend"></canvas>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

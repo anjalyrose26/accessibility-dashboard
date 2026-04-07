@@ -1,0 +1,173 @@
+/* ---- Reset & Base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #F1F5F9;
+  color: #1E293B;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---- Header ---- */
+.header {
+  background: #4F46E5;
+  color: #fff;
+  padding: 20px 32px;
+  box-shadow: 0 2px 8px rgba(79,70,229,0.3);
+}
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.header-title { font-size: 22px; font-weight: 700; letter-spacing: -0.3px; }
+.header-sub { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+.header-meta { font-size: 12px; opacity: 0.7; }
+
+/* ---- Main ---- */
+.main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+/* ---- Section ---- */
+.section {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+}
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.section-header h2 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1E293B;
+}
+.section-note {
+  font-size: 12px;
+  color: #94A3B8;
+}
+.chart-note {
+  font-size: 12px;
+  color: #94A3B8;
+  margin-bottom: 12px;
+}
+
+/* ---- Stat Cards ---- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.stat-card {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 16px 20px;
+}
+.stat-label { font-size: 12px; color: #64748B; font-weight: 500; text-transform: uppercase; letter-spacing: 0.4px; }
+.stat-value { font-size: 28px; font-weight: 700; color: #1E293B; margin: 6px 0 4px; }
+.stat-delta { font-size: 12px; font-weight: 500; }
+.stat-delta.up   { color: #10B981; }
+.stat-delta.down { color: #EF4444; }
+.stat-delta.flat { color: #94A3B8; }
+
+/* ---- Chart ---- */
+.chart-box {
+  position: relative;
+  height: 300px;
+}
+
+/* ---- Controls ---- */
+.controls { display: flex; align-items: center; gap: 8px; }
+.controls label { font-size: 13px; color: #64748B; }
+.controls select {
+  border: 1px solid #CBD5E1;
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 13px;
+  color: #1E293B;
+  background: #fff;
+  cursor: pointer;
+}
+.controls select:focus { outline: 2px solid #4F46E5; }
+
+/* ---- Tables ---- */
+.table-scroll { overflow-x: auto; }
+
+.rank-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.rank-table th {
+  background: #F8FAFC;
+  color: #64748B;
+  font-weight: 600;
+  text-align: center;
+  padding: 10px 14px;
+  border-bottom: 2px solid #E2E8F0;
+  white-space: nowrap;
+}
+.rank-table th.kw-col { text-align: left; }
+.rank-table th.webyes-th {
+  background: #EEF2FF;
+  color: #4F46E5;
+}
+.rank-table td {
+  text-align: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid #F1F5F9;
+  white-space: nowrap;
+}
+.rank-table td.kw-col { text-align: left; font-weight: 500; color: #334155; }
+.rank-table td.webyes-td { background: #F5F3FF; font-weight: 700; color: #4F46E5; }
+.rank-table tr:hover td { background: #F8FAFC; }
+.rank-table tr:hover td.webyes-td { background: #EEF2FF; }
+.rank-table .empty-row { color: #94A3B8; text-align: center; padding: 32px; }
+
+/* Rank badges */
+.rank-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.rank-1-3  { background: #D1FAE5; color: #065F46; }
+.rank-4-10 { background: #FEF3C7; color: #92400E; }
+.rank-11-20{ background: #FFEDD5; color: #9A3412; }
+.rank-21p  { background: #FEE2E2; color: #991B1B; }
+.rank-none { background: #F1F5F9; color: #94A3B8; }
+
+/* Change indicators */
+.change-up   { color: #10B981; font-weight: 700; }
+.change-down { color: #EF4444; font-weight: 700; }
+.change-flat { color: #94A3B8; }
+.change-new  { color: #4F46E5; font-style: italic; font-size: 11px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .main { padding: 16px; gap: 20px; }
+  .header { padding: 16px; }
+  .section { padding: 16px; }
+  .stat-value { font-size: 22px; }
+  .chart-box { height: 240px; }
+}
