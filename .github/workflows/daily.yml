@@ -7,7 +7,7 @@ on:
 
 jobs:
   scrape:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     permissions:
       contents: write       # Needed to commit & push data files
 
@@ -24,9 +24,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Install Playwright browsers
-        run: |
-          sudo apt-get install -y libasound2t64
-          playwright install chromium --with-deps
+        run: playwright install chromium --with-deps
 
       - name: Run ranking scraper
         run: python scripts/scrape_rankings.py
