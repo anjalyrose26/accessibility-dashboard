@@ -15,6 +15,7 @@ Requirements:
 import asyncio
 import json
 import os
+import re
 import sys
 from datetime import date
 
@@ -120,6 +121,25 @@ async def scrape_keyword(page, keyword: str) -> dict:
     return positions
 
 
+async def scrape_user_count(page):
+    """
+    Visit the WebYes extension page and extract the public user count.
+    Returns an integer or None if not found.
+    """
+    url = f"https://chromewebstore.google.com/detail/accessibility-checker-by/{EXTENSIONS['webyes']}"
+    try:
+        await page.goto(url, wait_until="domcontentloaded", timeout=30_000)
+        await asyncio.sleep(2)
+        content = await page.content()
+        # CWS shows counts like "1,234 users" or "10,000+ users"
+        match = re.search(r'([\d,]+)\+?\s*users', content, re.IGNORECASE)
+        if match:
+            return int(match.group(1).replace(",", ""))
+    except Exception as exc:
+        print(f"  [warn] Could not scrape user count: {exc}")
+    return None
+
+
 async def main():
     today      = date.today().isoformat()
     repo_root  = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -140,6 +160,35 @@ async def main():
             locale="en-US",
         )
         page = await context.new_page()
+
+        # Scrape user count from extension page
+        print("Fetching user count from extension page ...", end=" ", flush=True)
+        user_count = await scrape_user_count(page)
+        if user_count is not None:
+            print(f"{user_count:,} users")
+            results["user_count"] = user_count
+            # Auto-update installs.json
+            installs_file = os.path.join(repo_root, "data", "installs.json")
+            if os.path.exists(installs_file):
+                with open(installs_file) as f:
+                    installs_data = json.load(f)
+            else:
+                installs_data = {"entries": []}
+            entries = installs_data.get("entries", [])
+            existing = next((e for e in entries if e["date"] == today), None)
+            if existing:
+                existing["total_installs"] = user_count
+            else:
+                entries.append({"date": today, "total_installs": user_count, "weekly_installs": None, "weekly_uninstalls": None})
+            installs_data["entries"] = sorted(entries, key=lambda e: e["date"])
+            os.makedirs(os.path.dirname(installs_file), exist_ok=True)
+            with open(installs_file, "w") as f:
+                json.dump(installs_data, f, indent=2)
+            print(f"  Auto-saved user count to data/installs.json")
+        else:
+            print("not found — check extension page manually")
+
+        await asyncio.sleep(REQUEST_PAUSE)
 
         for i, keyword in enumerate(KEYWORDS, 1):
             print(f"[{i}/{len(KEYWORDS)}] Scraping: '{keyword}' ...", end=" ", flush=True)

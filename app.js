@@ -104,12 +104,13 @@ function renderInstalls() {
   const latest   = installData[installData.length - 1];
   const prevWeek = installData.length >= 2 ? installData[installData.length - 2] : null;
 
-  el('stat-total').textContent     = latest.total_installs?.toLocaleString() ?? '—';
-  el('stat-weekly-in').textContent = latest.weekly_installs?.toLocaleString() ?? '—';
-  el('stat-weekly-out').textContent= latest.weekly_uninstalls?.toLocaleString() ?? '—';
+  el('stat-total').textContent     = latest.total_installs != null ? latest.total_installs.toLocaleString() : '—';
+  el('stat-weekly-in').textContent = latest.weekly_installs != null ? latest.weekly_installs.toLocaleString() : '—';
+  el('stat-weekly-out').textContent= latest.weekly_uninstalls != null ? latest.weekly_uninstalls.toLocaleString() : '—';
 
-  const net = (latest.weekly_installs ?? 0) - (latest.weekly_uninstalls ?? 0);
-  el('stat-net').textContent = (net >= 0 ? '+' : '') + net;
+  const hasWeekly = latest.weekly_installs != null && latest.weekly_uninstalls != null;
+  const net = hasWeekly ? latest.weekly_installs - latest.weekly_uninstalls : null;
+  el('stat-net').textContent = net != null ? (net >= 0 ? '+' : '') + net : '—';
   el('stat-net').parentElement.querySelector('.stat-delta')?.remove?.();
 
   if (prevWeek) {
