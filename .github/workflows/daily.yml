@@ -33,8 +33,13 @@ jobs:
         run: |
           git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/rankings/
+          git add data/
           git diff --staged --quiet && echo "No changes to commit" || (
             git commit -m "chore: rankings update $(date -u +%Y-%m-%d)" &&
             git push
           )
+
+      - name: Send Slack notification
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python scripts/notify_slack.py
