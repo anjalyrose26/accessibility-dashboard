@@ -2,7 +2,7 @@ name: Daily Rankings Scrape
 
 on:
   schedule:
-    - cron: '0 6 * * *'   # 6:00 AM UTC every day
+    - cron: '30 3 * * *'   # 3:30 AM UTC every day
   workflow_dispatch:        # Manual trigger from GitHub Actions UI
 
 jobs:

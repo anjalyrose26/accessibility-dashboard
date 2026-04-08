@@ -55,7 +55,7 @@ The 15 tracked keywords live in `KEYWORDS` list in `scripts/scrape_rankings.py`.
 ## GitHub Actions
 
 - Runner: `ubuntu-22.04` (intentional — `ubuntu-latest` is 24.04 which breaks Playwright's `--with-deps` due to `libasound2` rename)
-- Runs at 6 AM UTC daily + supports manual `workflow_dispatch`
+- Runs at 3:30 AM UTC daily + supports manual `workflow_dispatch`
 - Requires `SLACK_WEBHOOK_URL` secret set in repo settings
 - Commits scraped data as `github-actions[bot]`
 
