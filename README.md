@@ -17,7 +17,7 @@ Chrome Web Store analytics dashboard tracking keyword rankings and install stats
 ## Daily workflow
 
 ### 1. Rankings (automatic)
-GitHub Actions runs `scripts/scrape_rankings.py` every day at **6 AM UTC**, commits the result to `data/rankings/YYYY-MM-DD.json`, and updates `data/rankings/index.json`. No manual steps needed.
+GitHub Actions runs `scripts/scrape_rankings.py` every day at **3:30 AM UTC**, commits the result to `data/rankings/YYYY-MM-DD.json`, and updates `data/rankings/index.json`. No manual steps needed.
 
 You can also trigger it manually: **GitHub → Actions → Daily Rankings Scrape → Run workflow**.
 
