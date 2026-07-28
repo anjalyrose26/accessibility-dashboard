@@ -1,0 +1,141 @@
+{
+  "date": "2026-07-28",
+  "keywords": {
+    "accessibility checker": {
+      "siteimprove": 1,
+      "webyes": 3,
+      "silktide": 4,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "web accessibility checker": {
+      "siteimprove": 2,
+      "silktide": 3,
+      "axe_devtools": 7,
+      "webyes": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "wave": null
+    },
+    "WCAG checker": {
+      "siteimprove": 6,
+      "webyes": null,
+      "silktide": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "accessibility audit": {
+      "webyes": null,
+      "silktide": null,
+      "siteimprove": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "ADA compliance checker": {
+      "siteimprove": 3,
+      "webyes": 6,
+      "silktide": 8,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "color contrast checker": {
+      "webyes": null,
+      "silktide": null,
+      "siteimprove": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "accessibility testing": {
+      "axe_devtools": 2,
+      "siteimprove": 4,
+      "browserstack": 9,
+      "silktide": 10,
+      "webyes": null,
+      "accessible_web_helper": null,
+      "wave": null
+    },
+    "screen reader test": {
+      "browserstack": 4,
+      "silktide": 5,
+      "wave": 9,
+      "webyes": null,
+      "siteimprove": null,
+      "accessible_web_helper": null,
+      "axe_devtools": null
+    },
+    "accessibility validator": {
+      "siteimprove": 2,
+      "webyes": 4,
+      "silktide": 8,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "ARIA checker": {
+      "wave": 3,
+      "webyes": null,
+      "silktide": null,
+      "siteimprove": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null
+    },
+    "web accessibility tool": {
+      "axe_devtools": 1,
+      "siteimprove": 3,
+      "silktide": 4,
+      "accessible_web_helper": 6,
+      "wave": 7,
+      "webyes": null,
+      "browserstack": null
+    },
+    "WCAG compliance checker": {
+      "siteimprove": 6,
+      "webyes": 10,
+      "silktide": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    },
+    "accessibility analyzer": {
+      "siteimprove": 2,
+      "axe_devtools": 3,
+      "browserstack": 7,
+      "webyes": null,
+      "silktide": null,
+      "accessible_web_helper": null,
+      "wave": null
+    },
+    "accessibility extension": {
+      "siteimprove": 1,
+      "axe_devtools": 2,
+      "silktide": 6,
+      "webyes": null,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "wave": null
+    },
+    "disability checker": {
+      "siteimprove": 2,
+      "webyes": 3,
+      "silktide": 6,
+      "accessible_web_helper": null,
+      "browserstack": null,
+      "axe_devtools": null,
+      "wave": null
+    }
+  },
+  "user_count": 1000
+}
