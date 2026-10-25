@@ -1205,6 +1205,12 @@
       "total_installs": 1000,
       "weekly_installs": null,
       "weekly_uninstalls": null
+    },
+    {
+      "date": "2026-10-25",
+      "total_installs": 1000,
+      "weekly_installs": null,
+      "weekly_uninstalls": null
     }
   ]
 }
